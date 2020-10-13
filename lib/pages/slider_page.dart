@@ -20,6 +20,7 @@ class _SliderPageState extends State<SliderPage> {
               Align(
                 alignment: Alignment.topCenter,
                 child: PageView(
+                  key: Key("slider"),
                   scrollDirection: Axis.horizontal,
                   pageSnapping: false,
                   children: [
@@ -86,7 +87,9 @@ class _SliderPageState extends State<SliderPage> {
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (_) => LoginPage(),
+                          builder: (_) => LoginPage(
+                            key: Key("login"),
+                          ),
                         ),
                       );
                     },

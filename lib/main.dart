@@ -12,9 +12,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Login App',
-      home: SliderPage(),
+      home: SliderPage(
+        key: Key("startingpage"),
+      ),
       routes: {
-        "/home": (_) => HomePage(),
+        "/home": (_) => HomePage(
+              key: Key("home"),
+            ),
       },
     );
   }

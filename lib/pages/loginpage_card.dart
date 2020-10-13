@@ -73,6 +73,7 @@ class _LoginCardState extends State<LoginCard> {
                   height: height * 3 / 812,
                 ),
                 TextField(
+                  key: Key("emailfield"),
                   controller: emailController,
                   decoration: InputDecoration(
                     hintText: "Enter e-mail",
@@ -111,6 +112,7 @@ class _LoginCardState extends State<LoginCard> {
                   height: height * 3 / 812,
                 ),
                 TextField(
+                  key: Key("passwordfield"),
                   focusNode: passwordFocusNode,
                   controller: passwordController,
                   obscureText: true,
