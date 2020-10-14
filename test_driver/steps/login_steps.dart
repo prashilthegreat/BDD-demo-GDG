@@ -138,3 +138,19 @@ class WhenButtonTap extends WhenWithWorld<FlutterWorld> {
   @override
   RegExp get pattern => RegExp(r'I press the second login button');
 }
+
+//Then condition: Then I expect to be in the homepage
+class ThenHomePage extends ThenWithWorld<FlutterWorld> {
+  @override
+  Future<void> executeStep() async {
+    await FlutterDriverUtils.waitForFlutter(world.driver);
+    await FlutterDriverUtils.isPresent(
+      world.driver,
+      find.byValueKey("home"),
+      timeout: Duration(seconds: 2),
+    );
+  }
+
+  @override
+  RegExp get pattern => RegExp(r'I expect to be in the home page');
+}
