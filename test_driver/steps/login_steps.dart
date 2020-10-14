@@ -118,3 +118,23 @@ class AndEnterCredentials extends AndWithWorld<FlutterWorld> {
   @override
   RegExp get pattern => RegExp(r'I enter my credentials');
 }
+
+//When condition: When I press the second login button
+class WhenButtonTap extends WhenWithWorld<FlutterWorld> {
+  @override
+  Future<void> executeStep() async {
+    final button = find.text("Login");
+    await FlutterDriverUtils.waitForFlutter(
+      world.driver,
+      timeout: Duration(seconds: 2),
+    );
+    FlutterDriverUtils.tap(
+      world.driver,
+      button,
+      timeout: Duration(seconds: 2),
+    );
+  }
+
+  @override
+  RegExp get pattern => RegExp(r'I press the second login button');
+}
