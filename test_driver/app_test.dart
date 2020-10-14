@@ -4,6 +4,8 @@ import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'package:gherkin/gherkin.dart';
 import 'package:glob/glob.dart';
 
+import 'steps/login_steps.dart';
+
 Future<void> main() {
   //you can find what to configure in flutter_gherkin pub.dev page
   final config = FlutterTestConfiguration()
@@ -13,7 +15,15 @@ Future<void> main() {
       TestRunSummaryReporter(),
       JsonReporter(path: './report.json')
     ]
-    ..stepDefinitions = []
+    ..stepDefinitions = [
+      GivenSliderPage(),
+      AndIScroll(),
+      AndITapButton(),
+      AndLoginPage(),
+      AndEnterCredentials(),
+      WhenButtonTap(),
+      ThenHomePage()
+    ]
     ..customStepParameterDefinitions = []
     ..restartAppBetweenScenarios = true
     ..targetAppPath = "test_driver/app.dart"
